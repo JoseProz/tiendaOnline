@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Marca</th>
+				<th>Nombre</th>
+				<th>Tipo</th>
+				<th>Precio</th>
+				<th>Stock</th>
+				<th>Cantidad Vendidos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="producto:${productos}">
+				<th th:text="${producto.codProd}"></th>
+				<th th:text="${producto.marca}"></th>
+				<th th:text="${producto.nombre}"></th>
+				<th th:text="${producto.tipo}"></th>
+				<th th:text="${producto.precio}"></th>
+				<th th:text="${producto.stock}"></th>
+				<th th:text="${producto.cantidadVendidos}"></th>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+		<thead>
+			<tr>
+			<th>N°Transacción</th>
+				<th>Fecha</th>
+				<th>Total Gastado</th>
+				<th>DNI Usuario</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="pedido:${pedidos}">
+				<th th:text="${pedido.numTransaction}"></th>
+				<th th:text="${pedido.fecha}"></th>
+				<th th:text="${pedido.totalGastado}"></th>
+				<th th:text="${pedido.cliente.dni}"></th> 
+			</tr>
+		</tbody>
+	</table>
+	<table border=1>
+		<thead>
+			<tr>
+			<th>Producto ID</th>
+				<th>nombre</th>
+				<th>precio</th>
+				<th>x</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="producto:${productoslist}">
+				<th th:text="${producto.codProd}"></th>
+				<th th:text="${producto.nombre}"></th>
+				<th th:text="${producto.precio}"></th>
+				
+			</tr>
+		</tbody>
+	</table>
+	<form action="#" th:action="@{/pedidos/addPedidos}" th:object="${pedido}" method="post">
+	<select>
+		<option th:each="producto: ${productoslist}" th:text="${producto.nombre}"></option></select>
+	<p><input type="submit" value="cargar"/></p>
+	</form>
+
+</body>
+</html>
